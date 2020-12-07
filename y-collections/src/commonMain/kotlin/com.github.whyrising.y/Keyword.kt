@@ -35,18 +35,14 @@ class Keyword private constructor(
     internal val symbol: Symbol
 ) : Named, Comparable<Keyword>, IHashEq {
 
-    internal var print: String = ""
-        private set
+    internal val print: String = ":${symbol.name}"
 
     @ExperimentalStdlibApi
     internal val hashEq: Int = symbol.hasheq() + MAGIC
 
     override val name: String = symbol.name
 
-    override fun toString(): String {
-        if (print == "") print = ":${symbol.name}"
-        return print
-    }
+    override fun toString(): String = print
 
     @ExperimentalStdlibApi
     override fun hasheq(): Int = hashEq
