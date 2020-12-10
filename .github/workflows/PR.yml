@@ -32,15 +32,15 @@ jobs:
 
       - name: Run ubuntu tests
         if: matrix.os == 'ubuntu-latest'
-        run: ./gradlew test --stacktrace
+        run: ./gradlew check --stacktrace
 
       - name: Run windows tests
         if: matrix.os == 'windows-latest'
-        run: ./gradlew mingwX64Test
+        run: ./gradlew mingwX64Test --stacktrace
 
       - name: Run macOS tests
         if: matrix.os == 'macOS-latest'
-        run: ./gradlew macosX64Test
+        run: ./gradlew macosX64Test --stacktrace
 
       - name: Run ktlint
         run: ./gradlew ktlintCheck
